@@ -1,0 +1,1187 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+    color: white;
+
+    background:
+        radial-gradient(circle at 50% 0%, #073b5c, transparent 35%),
+        linear-gradient(135deg, #02050a, #061321, #02050a);
+
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   COLORS
+========================= */
+
+:root {
+    --blue: #00c8ff;
+    --cyan: #00f0ff;
+    --dark: #02050a;
+    --card: rgba(5, 24, 40, 0.75);
+    --gray: #a9bac5;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+header {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 1000;
+
+    background: rgba(2, 5, 10, 0.9);
+
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid rgba(0, 240, 255, 0.3);
+}
+
+.navbar {
+    width: 90%;
+    max-width: 1200px;
+
+    height: 70px;
+
+    margin: auto;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.logo {
+    font-size: 20px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+}
+
+.logo span {
+    color: var(--cyan);
+
+    text-shadow:
+        0 0 10px var(--cyan),
+        0 0 30px var(--blue);
+}
+
+#navLinks {
+    display: flex;
+
+    list-style: none;
+
+    gap: 30px;
+}
+
+#navLinks a {
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+#navLinks a:hover {
+    color: var(--cyan);
+
+    text-shadow: 0 0 10px var(--cyan);
+}
+
+#menuBtn {
+    display: none;
+
+    background: none;
+
+    border: none;
+
+    color: var(--cyan);
+
+    font-size: 25px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 100px 20px 50px;
+
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background: var(--blue);
+
+    filter: blur(180px);
+
+    opacity: 0.1;
+}
+
+.hero-content {
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================
+   DIAMOND
+========================= */
+
+.diamond {
+    width: 120px;
+    height: 120px;
+
+    margin: auto;
+
+    transform: rotate(45deg);
+
+    border: 3px solid var(--cyan);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    box-shadow:
+        0 0 15px var(--cyan),
+        0 0 40px var(--blue),
+        inset 0 0 20px var(--cyan);
+
+    animation: diamondGlow 2s infinite alternate;
+}
+
+.diamond span {
+    width: 75px;
+    height: 75px;
+
+    transform: rotate(-45deg);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: linear-gradient(
+        135deg,
+        white,
+        #6beaff,
+        #0077ff
+    );
+
+    color: #03101c;
+
+    font-size: 35px;
+
+    font-weight: bold;
+
+    clip-path: polygon(
+        50% 0,
+        100% 50%,
+        50% 100%,
+        0 50%
+    );
+
+    box-shadow: 0 0 30px var(--cyan);
+}
+
+@keyframes diamondGlow {
+    from {
+        filter: brightness(1);
+    }
+
+    to {
+        filter: brightness(1.5);
+
+        transform: rotate(45deg) scale(1.06);
+    }
+}
+
+
+/* =========================
+   HERO TEXT
+========================= */
+
+.welcome {
+    margin-top: 40px;
+
+    color: var(--cyan);
+
+    font-size: 12px;
+
+    letter-spacing: 5px;
+}
+
+.hero h1 {
+    margin-top: 20px;
+
+    font-size: clamp(35px, 7vw, 75px);
+
+    line-height: 1.1;
+}
+
+.hero h1 span {
+    display: block;
+
+    color: transparent;
+
+    -webkit-text-stroke: 1px var(--cyan);
+
+    text-shadow:
+        0 0 15px var(--cyan),
+        0 0 35px var(--blue);
+}
+
+.hero h2 {
+    margin-top: 20px;
+
+    color: var(--cyan);
+
+    min-height: 30px;
+}
+
+.description {
+    color: var(--gray);
+
+    margin: 20px 0 35px;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.button {
+    display: inline-block;
+
+    padding: 15px 30px;
+
+    background: var(--cyan);
+
+    color: #001018;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    border-radius: 5px;
+
+    box-shadow:
+        0 0 15px var(--cyan),
+        0 0 40px rgba(0, 200, 255, 0.4);
+
+    transition: 0.3s;
+}
+
+.button:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 0 25px var(--cyan),
+        0 0 60px var(--blue);
+}
+
+
+/* =========================
+   LIGHTNING
+========================= */
+
+.lightning {
+    position: absolute;
+
+    right: 10%;
+
+    top: 25%;
+
+    color: var(--cyan);
+
+    font-size: 100px;
+
+    opacity: 0.15;
+
+    text-shadow:
+        0 0 20px var(--cyan),
+        0 0 50px var(--blue);
+
+    animation: flash 1.5s infinite alternate;
+}
+
+@keyframes flash {
+    from {
+        opacity: 0.1;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0.5;
+        transform: scale(1.15);
+    }
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+    width: 90%;
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 100px 0;
+}
+
+.title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 50px;
+}
+
+.title span {
+    color: var(--cyan);
+
+    font-weight: bold;
+}
+
+.title h2 {
+    font-size: 30px;
+
+    letter-spacing: 3px;
+}
+
+.title::after {
+    content: "";
+
+    height: 1px;
+
+    flex: 1;
+
+    background: linear-gradient(
+        to right,
+        var(--cyan),
+        transparent
+    );
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+    display: grid;
+
+    grid-template-columns: 300px 1fr;
+
+    gap: 60px;
+
+    align-items: center;
+}
+
+.profile {
+    padding: 35px;
+
+    text-align: center;
+
+    background: var(--card);
+
+    border: 1px solid rgba(0, 240, 255, 0.3);
+
+    box-shadow:
+        0 0 30px rgba(0, 240, 255, 0.08);
+}
+
+.big-diamond {
+    width: 150px;
+    height: 150px;
+
+    margin: auto auto 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: linear-gradient(
+        135deg,
+        white,
+        #5cecff,
+        #006cff
+    );
+
+    color: #02101a;
+
+    font-size: 55px;
+
+    font-weight: bold;
+
+    clip-path: polygon(
+        50% 0,
+        100% 50%,
+        50% 100%,
+        0 50%
+    );
+
+    box-shadow: 0 0 40px var(--cyan);
+}
+
+.profile h3 {
+    font-size: 18px;
+}
+
+.profile p {
+    color: var(--cyan);
+
+    margin-top: 10px;
+}
+
+.about-content h3 {
+    font-size: 28px;
+
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    color: var(--gray);
+
+    line-height: 1.8;
+
+    margin-bottom: 15px;
+}
+
+.about-content strong {
+    color: var(--cyan);
+}
+
+
+/* =========================
+   INFO
+========================= */
+
+.info {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+.info div {
+    padding: 18px;
+
+    background: rgba(255,255,255,0.03);
+
+    border: 1px solid rgba(0,240,255,0.15);
+
+    transition: 0.3s;
+}
+
+.info div:hover {
+    border-color: var(--cyan);
+
+    box-shadow: 0 0 20px rgba(0,240,255,0.15);
+}
+
+.info small {
+    display: block;
+
+    color: var(--gray);
+
+    margin-bottom: 5px;
+}
+
+.info b {
+    color: white;
+}
+
+
+/* =========================
+   EDUCATION
+========================= */
+
+.education {
+    display: grid;
+
+    gap: 25px;
+}
+
+.education-card {
+    display: flex;
+
+    gap: 25px;
+
+    padding: 30px;
+
+    background: var(--card);
+
+    border: 1px solid rgba(0,240,255,0.2);
+
+    transition: 0.3s;
+}
+
+.education-card:hover,
+.education-card.current {
+    transform: translateX(10px);
+
+    border-color: var(--cyan);
+
+    box-shadow: 0 0 25px rgba(0,240,255,0.15);
+}
+
+.edu-icon {
+    color: var(--cyan);
+
+    font-size: 30px;
+
+    text-shadow: 0 0 15px var(--cyan);
+}
+
+.education-card small {
+    color: var(--cyan);
+
+    letter-spacing: 2px;
+}
+
+.education-card h3 {
+    margin: 10px 0;
+}
+
+.education-card p {
+    color: var(--gray);
+
+    line-height: 1.6;
+}
+
+.education-card strong {
+    color: var(--cyan);
+}
+
+
+/* =========================
+   BASKETBALL CAREER
+========================= */
+
+.basketball-card {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 40px;
+
+    padding: 45px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(0, 200, 255, 0.10),
+        rgba(5, 24, 40, 0.85)
+    );
+
+    border: 1px solid rgba(0, 240, 255, 0.3);
+
+    box-shadow:
+        0 0 30px rgba(0, 240, 255, 0.08);
+
+    transition: 0.4s;
+}
+
+.basketball-card:hover {
+    transform: translateY(-8px);
+
+    border-color: #00f0ff;
+
+    box-shadow:
+        0 0 35px rgba(0, 240, 255, 0.3);
+}
+
+.basketball-icon {
+    width: 150px;
+    height: 150px;
+
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 75px;
+
+    border: 2px solid #00f0ff;
+
+    box-shadow:
+        0 0 20px #00f0ff,
+        inset 0 0 20px rgba(0, 240, 255, 0.15);
+
+    transform: rotate(45deg);
+}
+
+.basketball-content {
+    position: relative;
+}
+
+.basketball-label {
+    color: #00f0ff !important;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 10px;
+}
+
+.basketball-content h3 {
+    font-size: 32px;
+
+    margin-bottom: 20px;
+}
+
+.basketball-content > p {
+    color: #a9bac5;
+
+    line-height: 1.8;
+
+    margin-bottom: 20px;
+}
+
+.basketball-content strong {
+    color: #00f0ff;
+}
+
+
+/* Basketball information boxes */
+
+.basketball-info {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+
+    margin-top: 25px;
+}
+
+.basketball-info div {
+    padding: 18px;
+
+    background: rgba(255, 255, 255, 0.03);
+
+    border: 1px solid rgba(0, 240, 255, 0.15);
+
+    transition: 0.3s;
+}
+
+.basketball-info div:hover {
+    border-color: #00f0ff;
+
+    box-shadow:
+        0 0 20px rgba(0, 240, 255, 0.2);
+}
+
+.basketball-info small {
+    display: block;
+
+    color: #a9bac5;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 7px;
+}
+
+.basketball-info strong {
+    font-size: 14px;
+}
+
+
+/* Basketball quote */
+
+.basketball-quote {
+    margin-top: 25px;
+
+    color: #00f0ff !important;
+
+    font-style: italic;
+
+    border-left: 3px solid #00f0ff;
+
+    padding-left: 15px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .basketball-card {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+
+        padding: 30px 20px;
+    }
+
+    .basketball-icon {
+        width: 110px;
+        height: 110px;
+
+        font-size: 55px;
+    }
+
+    .basketball-info {
+        grid-template-columns: 1fr;
+    }
+
+    .basketball-quote {
+        text-align: left;
+    }
+    
+}
+
+/* =========================
+   SKILLS
+========================= */
+
+.skills {
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 15px;
+}
+
+.skill {
+    padding: 30px 15px;
+
+    text-align: center;
+
+    background: var(--card);
+
+    border: 1px solid rgba(0,240,255,0.15);
+
+    transition: 0.3s;
+}
+
+.skill:hover {
+    transform: translateY(-10px);
+
+    border-color: var(--cyan);
+
+    box-shadow:
+        0 0 30px rgba(0,240,255,0.2);
+}
+
+.skill span {
+    display: block;
+
+    color: var(--cyan);
+
+    font-size: 45px;
+
+    margin-bottom: 15px;
+
+    text-shadow: 0 0 15px var(--cyan);
+}
+
+.skill h3 {
+    margin-bottom: 10px;
+}
+
+.skill p {
+    color: var(--gray);
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   DREAM
+========================= */
+
+.dream {
+    min-height: 600px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 100px 20px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,200,255,0.12),
+            transparent 60%
+        );
+}
+
+.dream-box {
+    max-width: 800px;
+}
+
+.electric {
+    font-size: 70px;
+
+    color: var(--cyan);
+
+    text-shadow:
+        0 0 10px var(--cyan),
+        0 0 40px var(--blue);
+
+    animation: flash 1s infinite alternate;
+}
+
+.dream-box > p:first-of-type {
+    color: var(--cyan);
+
+    letter-spacing: 5px;
+
+    margin: 20px 0;
+}
+
+.dream h2 {
+    font-size: clamp(40px, 7vw, 75px);
+}
+
+.dream h2 span {
+    display: block;
+
+    color: transparent;
+
+    -webkit-text-stroke: 1px var(--cyan);
+
+    text-shadow: 0 0 25px var(--cyan);
+}
+
+.dream-description {
+    max-width: 600px;
+
+    margin: 25px auto;
+
+    color: var(--gray);
+
+    line-height: 1.8;
+}
+
+.diamonds {
+    color: var(--cyan);
+
+    font-size: 20px;
+
+    margin-top: 40px;
+
+    text-shadow: 0 0 15px var(--cyan);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 50px 20px;
+
+    text-align: center;
+
+    background: #010307;
+
+    border-top: 1px solid rgba(0,240,255,0.2);
+}
+
+footer h3 {
+    letter-spacing: 3px;
+
+    margin-bottom: 15px;
+}
+
+footer span {
+    color: var(--cyan);
+
+    text-shadow: 0 0 15px var(--cyan);
+}
+
+footer p {
+    color: var(--gray);
+
+    font-size: 13px;
+
+    margin: 5px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    #menuBtn {
+        display: block;
+    }
+
+    #navLinks {
+        position: absolute;
+
+        top: 70px;
+        left: 0;
+
+        width: 100%;
+
+        display: none;
+
+        flex-direction: column;
+
+        gap: 0;
+
+        text-align: center;
+
+        background: #02070e;
+
+        border-bottom: 1px solid var(--cyan);
+    }
+
+    #navLinks.show {
+        display: flex;
+    }
+
+    #navLinks li {
+        width: 100%;
+    }
+
+    #navLinks a {
+        display: block;
+
+        padding: 18px;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+    .profile {
+        max-width: 350px;
+
+        margin: auto;
+    }
+
+    .skills {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .lightning {
+        right: 2%;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .hero h1 {
+        font-size: 35px;
+    }
+
+    .diamond {
+        width: 90px;
+        height: 90px;
+    }
+
+    .diamond span {
+        width: 60px;
+        height: 60px;
+
+        font-size: 28px;
+    }
+
+    .info {
+        grid-template-columns: 1fr;
+    }
+
+    .skills {
+        grid-template-columns: 1fr;
+    }
+
+    .title h2 {
+        font-size: 22px;
+    }
+
+    .education-card {
+        padding: 20px;
+    }
+
+}
+
+/* =========================
+   FULL SCREEN SECTIONS
+========================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+.hero,
+.section,
+.dream {
+    min-height: 100vh;
+    box-sizing: border-box;
+    scroll-snap-align: start;
+}
+
+body {
+    scroll-snap-type: y mandatory;
+}
+
+/* =========================
+   SLIDE BUTTONS
+========================= */
+
+.slide-controls {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 18px;
+    z-index: 99999;
+}
+
+.slide-dot {
+    width: 14px;
+    height: 14px;
+    border: 2px solid var(--cyan);
+    background: transparent;
+    cursor: pointer;
+    transform: rotate(45deg);
+}
+
+.slide-dot.active {
+    background: var(--cyan);
+    box-shadow: 0 0 15px var(--cyan);
+}
+
+/* NEXT BUTTON */
+
+.next-btn {
+    margin-top: 30px;
+    padding: 12px 28px;
+    background: transparent;
+    color: var(--cyan);
+    border: 1px solid var(--cyan);
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+}
+
+.next-btn:hover {
+    background: var(--cyan);
+    color: #000;
+    box-shadow: 0 0 20px var(--cyan);
+}
+
+.next-btn {
+    display: block;
+    margin: 35px auto 0;
+    padding: 12px 30px;
+    background: transparent;
+    color: var(--cyan);
+    border: 1px solid var(--cyan);
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.next-btn:hover {
+    background: var(--cyan);
+    color: #000;
+    box-shadow: 0 0 20px var(--cyan);
+}
+
+/* =========================
+   DREAM SLIDE FIX
+========================= */
+
+.dream {
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.dream-box {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.dream .next-btn {
+    display: block;
+    margin: 35px auto 0;
+}    
+
+
+
